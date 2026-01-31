@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPMM Fee and Price Impact Calculator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .cpmm-calculator {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .cpmm-section {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .cpmm-section-header {
+            background: #4a90d9;
+            color: white;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .cpmm-row {
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .cpmm-row:last-child {
+            border-bottom: none;
+        }
+        .cpmm-field {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .cpmm-field label {
+            min-width: 140px;
+            font-weight: 500;
+            color: #555;
+        }
+        .cpmm-field input[type="text"] {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+        .cpmm-field input[type="text"]:focus {
+            outline: none;
+            border-color: #4a90d9;
+            box-shadow: 0 0 0 2px rgba(74, 144, 217, 0.2);
+        }
+        .cpmm-slider-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .cpmm-slider-row label {
+            font-size: 0.85rem;
+            color: #777;
+        }
+        .cpmm-slider {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+        }
+        #delta-empty {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>CPMM Fee and Price Impact Calculator</h1>
+    <p>
+        This calculator demonstrates Constant Product Market Maker (CPMM) mathematics.
+        Adjust the initial liquidity and price, then modify the final price to see
+        the wallet deltas and fee collection for a hypothetical trade.
+    </p>
+
+    <!-- The WASM UI will be injected before this script element -->
+    <script type="module" id="cpmm_calculator">
+        import init, { inject_ui } from "./pkg/post_claude_code_getting_started.js";
+        async function run() {
+            await init();
+            inject_ui("cpmm_calculator");
+        }
+        run();
+    </script>
+
+    <h2>Formulas Used</h2>
+    <ul>
+        <li><strong>Invariant:</strong> k = x &middot; y = L&sup2;</li>
+        <li><strong>Price:</strong> P = y / x</li>
+        <li><strong>Base Reserves:</strong> x = L / &radic;P</li>
+        <li><strong>Quote Reserves:</strong> y = L &middot; &radic;P</li>
+        <li><strong>Wallet Delta:</strong> Opposite of pool reserve changes</li>
+        <li><strong>Fee:</strong> Collected on the input side of the trade</li>
+    </ul>
+
+    <h2>Interpretation</h2>
+    <ul>
+        <li>Positive base delta: trader receives base tokens</li>
+        <li>Negative quote delta: trader pays quote tokens</li>
+        <li>Fee is collected on whichever token the trader is paying</li>
+    </ul>
+</body>
+</html>
