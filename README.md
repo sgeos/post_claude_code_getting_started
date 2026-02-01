@@ -4,7 +4,7 @@ A WebAssembly-based interactive calculator for Constant Product Market Maker (CP
 
 ## Companion Repository
 
-This repository accompanies the blog post [Getting Started with Claude Code](https://sgeos.github.io/). The post covers Claude Code installation, configuration, CLAUDE.md best practices, and uses this calculator as a real-world example of agentic AI development.
+This repository accompanies the blog post [Getting Started with Claude Code](https://sgeos.github.io/ai/ai-tools/development/developer-productivity/tutorial/2026/01/31/claude_code_getting_started.html). The post covers Claude Code installation, configuration, CLAUDE.md best practices, and uses this calculator as a real-world example of agentic AI development.
 
 ## Features
 
