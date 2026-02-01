@@ -1,6 +1,10 @@
 # CPMM Fee and Price Impact Calculator
 
-A WebAssembly-based interactive calculator for Constant Product Market Maker (CPMM) mathematics. Built with Rust and designed for embedding in static websites such as Jekyll blogs.
+A WebAssembly-based interactive calculator for Constant Product Market Maker (CPMM) mathematics. Built with Rust and designed for embedding in static websites.
+
+## Companion Repository
+
+This repository accompanies the blog post [Getting Started with Claude Code](https://sgeos.github.io/). The post covers Claude Code installation, configuration, CLAUDE.md best practices, and uses this calculator as a real-world example of agentic AI development.
 
 ## Features
 
@@ -46,7 +50,7 @@ Then open http://localhost:8000/example.html in your browser.
 cargo test
 ```
 
-## Jekyll Integration
+## Web Integration
 
 1. Copy the `pkg/` directory to your web page assets:
 
@@ -88,3 +92,7 @@ Where:
 - **P**: Spot price
 
 Wallet deltas represent the trader's perspective: positive values indicate tokens received, negative values indicate tokens paid. Fees are collected on the input side of the trade.
+
+## License
+
+CC0 1.0 Universal - Public Domain Dedication
